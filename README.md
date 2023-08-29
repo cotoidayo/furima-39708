@@ -59,7 +59,7 @@
 - has_one :credit_card
 - has_one :ship_address
 
-### ● ship_addresses テーブル
+### ● addresses テーブル
 |Column|Type|Options|
 |------|----|-------|
 |last_name|string|null:false|
@@ -77,11 +77,3 @@
 #### Association
 - belongs_to :user
 
-### ● credit-cards テーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|customer_id|references|null: false, foreign_key: true|
-|card_id|references|null: false, foreign_key: true|
-#### Association
-- belongs_to :user
