@@ -1,0 +1,54 @@
+<mxfile host="65bd71144e">
+    <diagram id="THTLvkmkBxfpLT9PRZnn" name="ページ1">
+        <mxGraphModel dx="1006" dy="723" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="11" value="products" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="140" width="290" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="|Column|Type|Options|&#10;|------|----|-------|&#10;|name|string|null:false|&#10;|detail|text|null:false|&#10;|condition|string|null:false|&#10;|delivery_fee|integer|null:false|&#10;|shipping_area|string|null:false|&#10;|shipping_days|integer|null:false| &#10;|price|integer|null:false|&#10;|user_id|references|null: false, foreign_key: true|&#10;|buyer_id|references|null: false, foreign_key: true|&#10;|category_id|references|null: false, foreign_key: true|&#10;|brand_id|references|null: false, foreign_key: true|" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="11">
+                    <mxGeometry y="26" width="290" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="product_images " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="595" width="290" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="|Column|Type|Options|&#10;|------|----|-------|&#10;|image|string|null:false|&#10;|product_id|references|null: false, foreign_key: true|" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="15">
+                    <mxGeometry y="26" width="290" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="users" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="155" width="250" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="|Column|Type|Options|&#10;|------|----|-------|&#10;|nickname|string|null:false|&#10;|email|string|null: false, uniqueness: true|&#10;|password|string|null: false, uniqueness: true|&#10;|last_name|string|null: false|&#10;|first_name|string|null: false|&#10;|ruby_last_name|string|null:false|&#10;|ruby_first_name|string|null:false|&#10;|birthdate|date|null:false|" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="19">
+                    <mxGeometry y="26" width="250" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="CRIJ3La7Srns_JS1JVQd-39" value="ship_addresses" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="770" y="345" width="290" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="CRIJ3La7Srns_JS1JVQd-40" value="|Column|Type|Options|&#10;|------|----|-------|&#10;|last_name|string|null:false|&#10;|first_name|string|null:false|&#10;|ruby_last_name|string|null:false|&#10;|ruby_first_name|string|null:false|&#10;|postal_code|integer|null: false| &#10;|prefectures|string|null: false|&#10;|city|string|null: false|&#10;|address_detail|string|null: false|&#10;|apartment_name|string|&#10;|room_number|string|&#10;|phone_number|string|&#10;|user_id|references|null: false, foreign_key: true|" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="CRIJ3La7Srns_JS1JVQd-39">
+                    <mxGeometry y="26" width="290" height="214" as="geometry"/>
+                </mxCell>
+                <mxCell id="CRIJ3La7Srns_JS1JVQd-43" value="brands" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="600" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="CRIJ3La7Srns_JS1JVQd-44" value="|Column|Type|Options|&#10;|------|----|-------|&#10;|name|string|null: false|" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="CRIJ3La7Srns_JS1JVQd-43">
+                    <mxGeometry y="26" width="160" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="CRIJ3La7Srns_JS1JVQd-56" value="categories" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="460" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="CRIJ3La7Srns_JS1JVQd-57" value="|Column|Type|Options|&#10;|------|----|-------|&#10;|name|string|null:false|&#10;|ancestry|string|" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="CRIJ3La7Srns_JS1JVQd-56">
+                    <mxGeometry y="26" width="160" height="74" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="SrdiAJsytM0VWWYNwWCu" name="ページ2">
+        <mxGraphModel dx="775" dy="723" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
