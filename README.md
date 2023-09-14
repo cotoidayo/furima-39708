@@ -5,21 +5,21 @@
 | カラム名         | データ型 | オプション                     |
 |------------------|----------|--------------------------------|
 | id               | integer  | Primary Key, Auto Increment    |
-| username         | string   | Not Null                       |
-| password         | string   | Not Null                       |
-| email            | string   | Not Null, Unique                |
-| name_kanji_1     | string   |                                |
-| name_kanji_2     | string   |                                |
-| name_katakana_1  | string   |                                |
-| name_katakana_2  | string   |                                |
-| hbd              | date     |                                |
+| username         | string   | null: false                       |
+| password         | string   | null: false                       |
+| email            | string   | null: false, unique: true               |
+| name_kanji_1     | string   | null: false                             |
+| name_kanji_2     | string   | null: false                             |
+| name_katakana_1  | string   | null: false                             |
+| name_katakana_2  | string   | null: false                             |
+| hbd              | date     | null: false                             |
 
 ### items テーブル
 
 | カラム名            | データ型 | オプション                     |
 |---------------------|----------|--------------------------------|
 | id                  | integer  | Primary Key, Auto Increment    |
-| product_name        | string   | Not Null                       |
+| product_name        | string   | null: false                       |
 | description_of_item | text     |                                |
 | category            | string   |                                |
 | product_condition   | string   |                                |
@@ -33,16 +33,16 @@
 | カラム名        | データ型 | オプション                     |
 |-----------------|----------|--------------------------------|
 | id              | integer  | Primary Key, Auto Increment    |
-| buyer_user_id   | integer  | Not Null                       |
+| buyer_user_id   | integer  | null: false                       |
 
 ### knowledges テーブル
 
 | カラム名          | データ型 | オプション                     |
 |-------------------|----------|--------------------------------|
 | id                | integer  | Primary Key, Auto Increment    |
-| post_code         | string   | Not Null                       |
-| prefectures       | string   | Not Null                       |
+| post_code         | string   | null: false                       |
+| prefectures       | string   | null: false                       |
 | municipalities    | string   |                                |
 | street_address    | string   |                                |
 | building_name     | string   |                                |
-| phone_number      | string   | Not Null                       |
+| phone_number      | string   | null: false                       |
