@@ -1,79 +1,49 @@
-# README
 
-### ● products テーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null:false|
-|detail|text|null:false|
-|condition|string|null:false|
-|delivery_fee|integer|null:false|
-|shipping_area|string|null:false|
-|shipping_days|integer|null:false| 
-|price|integer|null:false|
-|user_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-#### Association
-- has_many :product_images
-- belongs_to :brand
-- belongs_to :category
-- belongs_to :user
+## テーブル
 
-### ● product_images テーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|string|null:false|
-|product_id|references|null: false, foreign_key: true|
-#### Association
-- belongs_to :product
+### items テーブル
 
-### ● categories テーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null:false|
-|ancestry|string|
-#### Association
-- has_many :products
+| Column              | Type   | Options |
+|---------------------|--------|---------|
+| id                  | Integer| Primary Key, Auto Increment |
+| username            | String |         |
+| password            | String |         |
+| email_address       | String |         |
+| name_kanji_1        | String |         |
+| name_kanji_2        | String |         |
+| name_katakana_1     | String |         |
+| name_katakana_2     | String |         |
+| hbd                 | Date   |         |
 
-### ● brands テーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-#### Association
-- has_many :products
+### users テーブル
 
-### ● users テーブル
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null:false|
-|email|string|null: false, uniqueness: true|
-|password|string|null: false, uniqueness: true|
-|last_name|string|null: false|
-|first_name|string|null: false|
-|ruby_last_name|string|null:false|
-|ruby_first_name|string|null:false|
-|birthdate|date|null:false|
-#### Association
-- has_many :products
-- has_one :credit_card
-- has_one :ship_address
+| Column              | Type   | Options |
+|---------------------|--------|---------|
+| id                  | Integer| Primary Key, Auto Increment |
+| product_name        | String |         |
+| description_of_item | Text   |         |
+| category            | String |         |
+| product_condition   | String |         |
+| burden_of_shipping  | String |         |
+| region_of_origin    | String |         |
+| shipping_days       | String |         |
+| price               | Integer|         |
 
-### ● addresses テーブル
-|Column|Type|Options|
-|------|----|-------|
-|last_name|string|null:false|
-|first_name|string|null:false|
-|ruby_last_name|string|null:false|
-|ruby_first_name|string|null:false|
-|postal_code|integer|null: false| 
-|prefectures|string|null: false|
-|city|string|null: false|
-|address_detail|string|null: false|
-|apartment_name|string|
-|room_number|string|
-|phone_number|string|
-|user_id|references|null: false, foreign_key: true|
-#### Association
-- belongs_to :user
+### buys テーブル
 
+| Column            | Type    | Options                               |
+|-------------------|---------|---------------------------------------|
+| id                | Integer | Primary Key, Auto Increment            |
+| buyer_user_id     | Integer |                                       |
+
+### knowledges テーブル
+
+| Column              | Type    | Options                               |
+|---------------------|---------|---------------------------------------|
+| id                  | Integer | Primary Key, Auto Increment            |
+| post_code           | String  |                                       |
+| prefectures         | String  |                                       |
+| municipalities      | String  |                                       |
+| street_address      | String  |                                       |
+| building_name       | String  |                                       |
+| phone_number        | String  | Not Null                              |
