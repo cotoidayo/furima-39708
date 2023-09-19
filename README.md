@@ -12,9 +12,9 @@
 | email              | string   | null: false, unique: true         |
 | first_name         | string   | null: false                       |
 | last_name          | string   | null: false                       |
-| first_name_kana    | string   | null: false                       |
-| last_name_kana     | string   | null: false                       |
-| birthday           | date     | null: false                       |
+| kana_first_name    | string   | null: false                       |
+| kana_last_name     | string   | null: false                       |
+| hbd                | date     | null: false                       |
 
 #### アソシエーション
 
@@ -23,28 +23,28 @@
 
 ### items テーブル
 
-| カラム名            | データ型 | オプション                        |
-|---------------------|----------|-----------------------------------|
-| id                  | integer  | Primary Key, Auto Increment      |
-| product_name        | string   | null: false                       |
-| description_of_item | text     | null: false                                  |
-| category_id         | references | null: false                                  |
-| product_condition_id| references| null: false                       |
-| burden_of_shipping_id| references| null: false                       |
-| region_of_origin_id  | references| null: false                       |
-| shipping_days_id     | references| null: false                       |
-| price               | integer  | null: false                       |
-| seller_id           | integer  | Foreign Key (users テーブルと関連付け) |
+| カラム名            | データ型   | オプション                                  |
+|---------------------|------------|---------------------------------------------|
+| id                  | integer    | Primary Key, Auto Increment                 |
+| product_name        | string     | null: false                                |
+| description_of_item | text       | null: false                                |
+| category_id         | integer    | null: false, foreign_key: true              |
+| product_condition_id| integer    | null: false, foreign_key: true              |
+| burden_of_shipping_id| integer   | null: false, foreign_key: true              |
+| region_of_origin_id  | integer   | null: false, foreign_key: true              |
+| shipping_days_id     | integer   | null: false, foreign_key: true              |
+| price               | integer    | null: false                                |
+| seller_id           | references | null: false, foreign_key: true              |
 
 #### アソシエーション
 
-- belongs_to :seller, class_name: 'User'
+- belongs_to :user
+- has_one :purchase
 - belongs_to :category, class_name: 'Category', foreign_key: 'category_id'
 - belongs_to :condition, class_name: 'Condition', foreign_key: 'product_condition_id'
 - belongs_to :shipping, class_name: 'Shipping', foreign_key: 'burden_of_shipping_id'
 - belongs_to :region, class_name: 'Region', foreign_key: 'region_of_origin_id'
 - belongs_to :days, class_name: 'ShippingDay', foreign_key: 'shipping_days_id'
-- has_one :purchase
 
 ### knowledges テーブル
 
@@ -52,7 +52,7 @@
 |-------------------|----------|-----------------------------------|
 | id                | integer  | Primary Key, Auto Increment      |
 | post_code         | string   | null: false                       |
-| prefecture_id     | references | null: false                       |
+| prefecture_id     | integer  | null: false                       |
 | municipalities    | string   | null: false                       |
 | street_address    | string   | null: false                       |
 | building_name     | string   |                                   |
@@ -64,6 +64,7 @@
 
 - belongs_to :buyer, class_name: 'User'
 - belongs_to :item
+- belongs_to :prefecture, class_name: 'Prefecture', foreign_key: 'prefecture_id'
 
 ### buys テーブル
 
