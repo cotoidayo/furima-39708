@@ -18,8 +18,8 @@
 
 #### アソシエーション
 
-- has_many :items, foreign_key: 'seller_id'
-- has_many :buys, foreign_key: 'buyer_id'
+- has_many :items　:'seller_id'
+- has_many :buys　:'buyer_id'
 
 ### items テーブル
 
@@ -28,13 +28,13 @@
 | id                  | integer    | Primary Key, Auto Increment                 |
 | product_name        | string     | null: false                                |
 | description_of_item | text       | null: false                                |
-| category_id         | integer    | null: false, foreign_key: true              |
-| product_condition_id| integer    | null: false, foreign_key: true              |
-| burden_of_shipping_id| integer   | null: false, foreign_key: true              |
-| region_of_origin_id  | integer   | null: false, foreign_key: true              |
-| shipping_days_id     | integer   | null: false, foreign_key: true              |
+| category_id         | integer    | null: false               |
+| product_condition_id| integer    | null: false              |
+| burden_of_shipping_id| integer   | null: false              |
+| region_of_origin_id  | integer   | null: false　            |
+| shipping_days_id     | integer   | null: false             |
 | price               | integer    | null: false                                |
-| seller_id           | references | null: false, foreign_key: true              |
+| user_id           | references | null: false,               |
 
 #### アソシエーション
 
@@ -61,21 +61,19 @@
 | item_id           | integer  | Foreign Key (items テーブルと関連付け) |
 
 #### アソシエーション
-
-- belongs_to :buyer, class_name: 'User'
-- belongs_to :item
 - belongs_to :prefecture, class_name: 'Prefecture', foreign_key: 'prefecture_id'
 
 ### buys テーブル
 
-| カラム名     | データ型 | オプション                        |
-|--------------|----------|-----------------------------------|
-| id           | integer  | Primary Key, Auto Increment      |
-| user_id      | references | null: false, foreign_key: true   |
-| item_id      | references | null: false, foreign_key: true   |
+| カラム名            | データ型 | オプション                        |
+|---------------------|----------|-----------------------------------|
+| id                  | integer  | Primary Key, Auto Increment      |
+| user      | references | null: false, foreign_key: true   |
+| item      | references | null: false, foreign_key: true   |
+| buy_id              | integer  | Foreign Key (buys テーブルと関連付け)  |
 
 #### アソシエーション
 
 - belongs_to :user
 - belongs_to :item
-- has_many :knowledges, foreign_key: 'buyer_id'
+- has_one :knowledge
